@@ -21,11 +21,7 @@ phases:
     commands:
       - rm -rf public
       - hugo --minify
-      - aws s3 cp public/ s3://hugofoorduke01b/ --region ap-southeast-1 --recursive
+      - aws s3 sync public/ s3://hugofoorduke01b/ --region ap-southeast-1 --delete
   post_build:
     commands:
       - echo Build completed on `date`
-artifacts:
-    files:
-        - '**/*'
-    base-directory: public
