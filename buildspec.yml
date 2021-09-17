@@ -21,7 +21,7 @@ phases:
     commands:
       - rm -rf public
       - hugo --minify
-      - aws s3 cp public/ s3://hugofoorduke01b/ --delete
+      - aws s3 cp public\ s3://hugofoorduke01b/ --recursive
   post_build:
     commands:
       - echo Build completed on `date`
